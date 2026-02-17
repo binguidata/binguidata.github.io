@@ -1024,4 +1024,15 @@
           const siblings = [...e.target.parentElement.querySelectorAll('.reveal:not(.visible)')];
           const idx = siblings.indexOf(e.target);
           setTimeout(() => {
- 
+            e.target.classList.add('visible');
+          }, idx * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
