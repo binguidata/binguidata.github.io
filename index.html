@@ -661,21 +661,24 @@
           </div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">Ph<span>.D</span></div>
-          <div class="stat-label">Physics</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">4<span>+</span></div>
+          <div class="stat-number" id="cmu-years">5<span>+</span></div>
           <div class="stat-label">Years at CMU</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-number">3<span>+</span></div>
-          <div class="stat-label">Research Projects</div>
+        <div class="stat-card" style="cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ','_blank')">
+          <div class="stat-number">118<span>k</span></div>
+          <div class="stat-label">Citations</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-number">10<span>+</span></div>
-          <div class="stat-label">Publications</div>
+        <div class="stat-card" style="cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ','_blank')">
+          <div class="stat-number">168</div>
+          <div class="stat-label">h-index</div>
         </div>
+        <div class="stat-card" style="cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ','_blank')">
+          <div class="stat-number">484</div>
+          <div class="stat-label">i10-index</div>
+        </div>
+      </div>
+      <div style="font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;color:var(--ink-muted);margin-top:.6rem;text-align:right;">
+        via <a href="https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ" target="_blank" rel="noopener" style="color:var(--ink-muted);text-decoration:none;border-bottom:1px solid var(--line);">Google Scholar</a>
       </div>
 
       <div class="contact-block">
@@ -897,6 +900,17 @@
   </footer>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Dynamic years at CMU (joined March 2020)
+    const joined = new Date(2020, 2, 1); // March 1, 2020 (month is 0-indexed)
+    const now = new Date();
+    let years = now.getFullYear() - joined.getFullYear();
+    const monthDiff = now.getMonth() - joined.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < joined.getDate())) {
+      years--;
+    }
+    const cmuEl = document.getElementById('cmu-years');
+    if (cmuEl) cmuEl.innerHTML = years + '<span>+</span>';
+
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
