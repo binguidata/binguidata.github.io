@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bin Gui — Senior Project Scientist & Chief Data Scientist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <a class="nav-logo" href="index.html">Bin <span>Gui</span></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="skills.html">Skills</a>
+      <a href="mailto:bingui@cmu.edu" class="btn btn-primary" style="padding:.4rem 1rem">Contact</a>
+    </nav>
+  </header>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="section-header reveal">
+      <span class="section-num">01 /</span>
+      <h2 class="section-title">Research <em>Interests</em></h2>
+    </div>
+
+    <div class="research-grid">
+      <div class="research-card reveal">
+        <div class="rc-icon">🌐</div>
+        <h3 class="rc-title">Dynamic Transportation Network Modeling</h3>
+        <p class="rc-desc">
+          Essential tool for transportation planners and policymakers, providing insights to optimize system performance. 
+          Large-scale network simulation for urban congestion analysis and infrastructure planning.
+        </p>
+        <div class="rc-tags">
+          <span class="rc-tag">Network Simulation</span>
+          <span class="rc-tag">Urban Planning</span>
+        </div>
+      </div>
+
+      <div class="research-card reveal">
+        <div class="rc-icon">🚦</div>
+        <h3 class="rc-title">Real-Time Traffic Prediction</h3>
+        <p class="rc-desc">
+          Deep learning models for predicting traffic speed and incidents across large highway networks. 
+          Deployed systems with live data pipelines for transportation agencies.
+        </p>
+        <div class="rc-tags">
+          <span class="rc-tag">Machine Learning</span>
+          <span class="rc-tag">GRU Models</span>
+          <span class="rc-tag">Probe Vehicle Data</span>
+        </div>
+      </div>
+
+      <div class="research-card reveal">
+        <div class="rc-icon">📊</div>
+        <h3 class="rc-title">COVID-19 Mobility Impact Analysis</h3>
+        <p class="rc-desc">
+          Assessed pandemic impact on downtown Pittsburgh traffic by visualizing speed and count data before, during, and after COVID-19. 
+          Interactive web dashboards for policy makers.
+        </p>
+        <div class="rc-tags">
+          <span class="rc-tag">Data Visualization</span>
+          <span class="rc-tag">Web Development</span>
+        </div>
+      </div>
+
+      <div class="research-card reveal">
+        <div class="rc-icon">🚗</div>
+        <h3 class="rc-title">Flexible Mobility Services</h3>
+        <p class="rc-desc">
+          Developing solutions for flexible travel options with expanded riding hours and dynamic pick-up/drop-off locations. 
+          Deployed the Rural Access Mobility Platform (RAMP) in Greene County, PA to improve transportation access in rural communities.
+        </p>
+        <div class="rc-tags">
+          <span class="rc-tag">Mobility Services</span>
+          <span class="rc-tag">RAMP</span>
+          <span class="rc-tag">Rural Access</span>
+        </div>
+      </div>
+
+      <div class="research-card reveal">
+        <div class="rc-icon">⛰️</div>
+        <h3 class="rc-title">Landslide Early Warning System (Maryland DOT)</h3>
+        <p class="rc-desc">
+          Developed precipitation-based landslide risk assessment and alert dashboard for Maryland State Highway Administration. 
+          Integrates real-time weather data, soil moisture prediction, and geospatial slope analysis for statewide monitoring and early warning.
+        </p>
+        <div class="rc-tags">
+          <span class="rc-tag">Risk Assessment</span>
+          <span class="rc-tag">Open-Meteo API</span>
+          <span class="rc-tag">GIS Integration</span>
+        </div>
+      </div>
+
+      <div class="research-card reveal">
+        <div class="rc-icon">⚛️</div>
+        <h3 class="rc-title">High-Energy Physics (ATLAS, LHCb)</h3>
+        <p class="rc-desc">
+          Contributed to major experiments at CERN including Higgs boson searches, CP violation measurements, and detector development. 
+          Published in Physical Review Letters and Physical Review D.
+        </p>
+        <div class="rc-tags">
+          <span class="rc-tag">CERN</span>
+          <span class="rc-tag">Particle Physics</span>
+        </div>
+      </div>
+
+      <div class="research-card reveal">
+        <div class="rc-icon">💎</div>
+        <h3 class="rc-title">CVD Diamond Detector Development (RD42)</h3>
+        <p class="rc-desc">
+          Designed and built pad, strip, pixel, and 3D CVD diamond detectors for extreme radiation environments. 
+          Integrated Diamond Beam Monitors into ATLAS readout systems.
+        </p>
+        <div class="rc-tags">
+          <span class="rc-tag">Detector Physics</span>
+          <span class="rc-tag">Instrumentation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">Bin Gui</div>
+    <div class="footer-note">Senior Project Scientist, CMU &nbsp;·&nbsp; Chief Data Scientist, TraffiQure Technologies</div>
+  </footer>
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          const siblings = [...e.target.parentElement.querySelectorAll('.reveal:not(.visible)')];
+          const idx = siblings.indexOf(e.target);
+          setTimeout(() => {
+            e.target.classList.add('visible');
+          }, idx * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

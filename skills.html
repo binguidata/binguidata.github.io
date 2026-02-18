@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bin Gui — Senior Project Scientist & Chief Data Scientist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header>
+    <a class="nav-logo" href="index.html">Bin <span>Gui</span></a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="skills.html">Skills</a>
+      <a href="mailto:bingui@cmu.edu" class="btn btn-primary" style="padding:.4rem 1rem">Contact</a>
+    </nav>
+  </header>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header reveal">
+      <span class="section-num">03 /</span>
+      <h2 class="section-title">Technical <em>Skills</em></h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-group reveal">
+        <h4>Programming</h4>
+        <ul>
+          <li>Python</li>
+          <li>SQL</li>
+          <li>JavaScript / Node.js</li>
+          <li>R</li>
+          <li>Bash</li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <h4>ML & Data Science</h4>
+        <ul>
+          <li>PyTorch / TensorFlow</li>
+          <li>Scikit-learn</li>
+          <li>Pandas / NumPy</li>
+          <li>GeoPandas</li>
+          <li>Sequence Models (GRU/LSTM)</li>
+          <li>Time Series Analysis</li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Data Infrastructure</h4>
+        <ul>
+          <li>PostgreSQL / TimescaleDB</li>
+          <li>ETL Pipelines</li>
+          <li>REST APIs</li>
+          <li>Git / GitHub</li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Visualization & Web</h4>
+        <ul>
+          <li>HTML/CSS/JavaScript</li>
+          <li>Leaflet / Mapbox</li>
+          <li>Matplotlib</li>
+          <li>Plotly</li>
+          <li>React</li>
+          <li>Flask / Django</li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Transportation Domain</h4>
+        <ul>
+          <li>MAC-POSTS Simulation</li>
+          <li>Digital Twin Networks</li>
+          <li>Network Modeling</li>
+          <li>Real-Time Prediction</li>
+          <li>Mobility Analytics</li>
+          <li>Urban Planning</li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <h4>Physics & Instrumentation</h4>
+        <ul>
+          <li>High-Energy Physics</li>
+          <li>Detector Development</li>
+          <li>Data Acquisition Systems</li>
+          <li>CERN Experiments</li>
+          <li>Signal Processing</li>
+          <li>Monte Carlo Simulation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">Bin Gui</div>
+    <div class="footer-note">Senior Project Scientist, CMU &nbsp;·&nbsp; Chief Data Scientist, TraffiQure Technologies</div>
+  </footer>
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          const siblings = [...e.target.parentElement.querySelectorAll('.reveal:not(.visible)')];
+          const idx = siblings.indexOf(e.target);
+          setTimeout(() => {
+            e.target.classList.add('visible');
+          }, idx * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
