@@ -68,7 +68,7 @@
             </div>
           </div>
         </div>
-        <div class="stat-card" style="cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ','_blank')">
+<div class="stat-card" style="cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ','_blank')">
           <div class="stat-number">118<span>k</span></div>
           <div class="stat-label">Citations</div>
         </div>
@@ -103,17 +103,7 @@
     <div class="footer-note">Senior Project Scientist, CMU &nbsp;·&nbsp; Chief Data Scientist, TraffiQure Technologies</div>
   </footer>
 
-    // Dynamic years at CMU (joined March 2020)
-    const joined = new Date(2020, 2, 1); // March 1, 2020 (month is 0-indexed)
-    const now = new Date();
-    let years = now.getFullYear() - joined.getFullYear();
-    const monthDiff = now.getMonth() - joined.getMonth();
-    if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < joined.getDate())) {
-      years--;
-    }
-    const cmuEl = document.getElementById('cmu-years');
-    if (cmuEl) cmuEl.innerHTML = years + '<span>+</span>';
-
+  <script>
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
