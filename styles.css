@@ -315,6 +315,29 @@
       border-bottom: 1px solid var(--line);
     }
 
+    /* sub-grouping inside #research (Transportation / Physics) */
+    .research-group + .research-group { margin-top: 3.5rem; }
+
+    .group-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .group-label {
+      font-family: var(--mono);
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+    .group-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
     .research-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
