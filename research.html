@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Research — Bin Gui</title>
+  <meta name="description" content="Bin Gui's research in transportation network modeling, traffic prediction, mobility systems, geospatial risk, particle physics, and detector development." />
+  <link rel="canonical" href="https://binguidata.github.io/research.html" />
+  <meta property="og:title" content="Research — Bin Gui" />
+  <meta property="og:description" content="Research spanning transportation AI, mobility systems, complex networks, and high-energy physics." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://binguidata.github.io/research.html" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
@@ -14,9 +21,12 @@
   <!-- NAV -->
   <header>
     <a class="nav-logo" href="index.html">Bin <span>Gui</span></a>
-    <nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
+    <nav id="primary-nav" aria-label="Primary navigation">
       <a href="index.html">Home</a>
-      <a href="research.html">Research</a>
+      <a href="research.html" aria-current="page">Research</a>
       <a href="publications.html">Publications</a>
       <a href="skills.html">Skills</a>
       <a href="mailto:bingui@cmu.edu" class="btn btn-primary" style="padding:.4rem 1rem">Contact</a>
@@ -24,10 +34,11 @@
   </header>
 
   <!-- RESEARCH -->
+  <main>
   <section id="research">
     <div class="section-header reveal">
       <span class="section-num">01 /</span>
-      <h2 class="section-title">Research <em>Interests</em></h2>
+      <h1 class="section-title">Research <em>Interests</em></h1>
     </div>
 
     <!-- Transportation group -->
@@ -38,7 +49,7 @@
       </div>
       <div class="research-grid">
         <div class="research-card reveal">
-          <div class="rc-icon">🌐</div>
+          <div class="rc-icon" aria-hidden="true">🌐</div>
           <h3 class="rc-title">Dynamic Transportation Network Modeling</h3>
           <p class="rc-desc">
             Essential tool for transportation planners and policymakers, providing insights to optimize system performance.
@@ -51,7 +62,7 @@
         </div>
 
         <div class="research-card reveal">
-          <div class="rc-icon">🚦</div>
+          <div class="rc-icon" aria-hidden="true">🚦</div>
           <h3 class="rc-title">Real-Time Traffic Prediction</h3>
           <p class="rc-desc">
             Deep learning models for predicting traffic speed and incidents across large highway networks.
@@ -65,7 +76,7 @@
         </div>
 
         <div class="research-card reveal">
-          <div class="rc-icon">📊</div>
+          <div class="rc-icon" aria-hidden="true">📊</div>
           <h3 class="rc-title">COVID-19 Mobility Impact Analysis</h3>
           <p class="rc-desc">
             Assessed pandemic impact on downtown Pittsburgh traffic by visualizing speed and count data before, during, and after COVID-19.
@@ -78,7 +89,7 @@
         </div>
 
         <div class="research-card reveal">
-          <div class="rc-icon">🚗</div>
+          <div class="rc-icon" aria-hidden="true">🚗</div>
           <h3 class="rc-title">Flexible Mobility Services</h3>
           <p class="rc-desc">
             Developing solutions for flexible travel options with expanded riding hours and dynamic pick-up/drop-off locations.
@@ -92,7 +103,7 @@
         </div>
 
         <div class="research-card reveal">
-          <div class="rc-icon">🅿️</div>
+          <div class="rc-icon" aria-hidden="true">🅿️</div>
           <h3 class="rc-title">Sensor-Less Parking</h3>
           <p class="rc-desc">
             Real-time spot-occupancy management in managed lots without installing per-spot hardware sensors —
@@ -109,7 +120,7 @@
         </div>
 
         <div class="research-card reveal">
-          <div class="rc-icon">⛰️</div>
+          <div class="rc-icon" aria-hidden="true">⛰️</div>
           <h3 class="rc-title">Landslide Early Warning System (Maryland DOT)</h3>
           <p class="rc-desc">
             Developed precipitation-based landslide risk assessment and alert dashboard for Maryland State Highway Administration.
@@ -132,7 +143,7 @@
       </div>
       <div class="research-grid">
         <div class="research-card reveal">
-          <div class="rc-icon">⚛️</div>
+          <div class="rc-icon" aria-hidden="true">⚛️</div>
           <h3 class="rc-title">High-Energy Physics (ATLAS, LHCb)</h3>
           <p class="rc-desc">
             Contributed to major experiments at CERN including Higgs boson searches, CP violation measurements, and detector development.
@@ -145,7 +156,7 @@
         </div>
 
         <div class="research-card reveal">
-          <div class="rc-icon">💎</div>
+          <div class="rc-icon" aria-hidden="true">💎</div>
           <h3 class="rc-title">CVD Diamond Detector Development (RD42)</h3>
           <p class="rc-desc">
             Designed and built pad, strip, pixel, and 3D CVD diamond detectors for extreme radiation environments.
@@ -160,6 +171,7 @@
     </div>
 
   </section>
+  </main>
 
 
   <!-- FOOTER -->
@@ -168,22 +180,7 @@
     <div class="footer-note">Senior Project Scientist, CMU &nbsp;·&nbsp; Chief Data Scientist, TraffiQure Technologies</div>
   </footer>
 
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          const siblings = [...e.target.parentElement.querySelectorAll('.reveal:not(.visible)')];
-          const idx = siblings.indexOf(e.target);
-          setTimeout(() => {
-            e.target.classList.add('visible');
-          }, idx * 80);
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(el => observer.observe(el));
-  </script>
+  <script src="script.js" defer></script>
 
 </body>
 </html>

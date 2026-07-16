@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bin Gui — Senior Project Scientist & Chief Data Scientist</title>
+  <meta name="description" content="Bin Gui is a senior project scientist at Carnegie Mellon University and chief data scientist at TraffiQure, specializing in transportation AI, network modeling, and complex systems." />
+  <link rel="canonical" href="https://binguidata.github.io/index.html" />
+  <meta property="og:title" content="Bin Gui — Transportation AI & Complex Systems" />
+  <meta property="og:description" content="Research and applied work in transportation AI, network modeling, data science, and high-energy physics." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://binguidata.github.io/index.html" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
@@ -14,17 +21,20 @@
   <!-- NAV -->
   <header>
     <a class="nav-logo" href="index.html">Bin <span>Gui</span></a>
-    <nav>
-      <a href="index.html">Home</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
+    <nav id="primary-nav" aria-label="Primary navigation">
+      <a href="index.html" aria-current="page">Home</a>
       <a href="research.html">Research</a>
       <a href="publications.html">Publications</a>
       <a href="skills.html">Skills</a>
-      <a href="/cdn-cgi/l/email-protection#b0d2d9ded7c5d9f0d3ddc59ed5d4c5" class="btn btn-primary" style="padding:.4rem 1rem">Contact</a>
+      <a href="mailto:bingui@cmu.edu" class="btn btn-primary" style="padding:.4rem 1rem">Contact</a>
     </nav>
   </header>
 
   <!-- HERO -->
-  <section class="hero" id="top">
+  <main class="hero" id="top">
     <div class="hero-left">
       <div class="hero-eyebrow">Carnegie Mellon University &nbsp;·&nbsp; TraffiQure</div>
       <h1 class="hero-name">Bin<em>Gui</em></h1>
@@ -37,7 +47,7 @@
         a CMU spinoff using AI &amp; ML to improve transportation system planning and operation.
       </p>
       <div class="hero-links">
-        <a href="http://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ&view_op=list_works&sortby=pubdate"
+        <a href="https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ&view_op=list_works&sortby=pubdate"
            target="_blank" rel="noopener" class="btn btn-primary">
           Google Scholar ↗
         </a>
@@ -68,18 +78,18 @@
             </div>
           </div>
         </div>
-<div class="stat-card" style="cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ','_blank')">
+        <a class="stat-card" href="https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ" target="_blank" rel="noopener" aria-label="View citation count on Google Scholar">
           <div class="stat-number">128<span>k</span></div>
           <div class="stat-label">Citations</div>
-        </div>
-        <div class="stat-card" style="cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ','_blank')">
+        </a>
+        <a class="stat-card" href="https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ" target="_blank" rel="noopener" aria-label="View h-index on Google Scholar">
           <div class="stat-number">175</div>
           <div class="stat-label">h-index</div>
-        </div>
-        <div class="stat-card" style="cursor:pointer;" onclick="window.open('https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ','_blank')">
+        </a>
+        <a class="stat-card" href="https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ" target="_blank" rel="noopener" aria-label="View i10-index on Google Scholar">
           <div class="stat-number">475</div>
           <div class="stat-label">i10-index</div>
-        </div>
+        </a>
       </div>
       <div style="font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;color:var(--ink-muted);margin-top:.6rem;text-align:right;">
         via <a href="https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ" target="_blank" rel="noopener" style="color:var(--ink-muted);text-decoration:none;border-bottom:1px solid var(--line);">Google Scholar</a>
@@ -88,13 +98,13 @@
       <div class="contact-block">
         <h3>Get in Touch</h3>
         <p>
-          Email: bingui [at] cmu [dot] edu<br/>
+          Email: <a href="mailto:bingui@cmu.edu">bingui [at] cmu [dot] edu</a><br/>
           Department of Civil &amp; Environmental Engineering<br/>
           Carnegie Mellon University, Pittsburgh PA
         </p>
       </div>
     </div>
-  </section>
+  </main>
 
 
   <!-- FOOTER -->
@@ -103,25 +113,7 @@
     <div class="footer-note">Senior Project Scientist, CMU &nbsp;·&nbsp; Chief Data Scientist, TraffiQure Technologies</div>
   </footer>
 
-  <script>
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          // stagger siblings
-          const siblings = [...e.target.parentElement.querySelectorAll('.reveal:not(.visible)')];
-          const idx = siblings.indexOf(e.target);
-          setTimeout(() => {
-            e.target.classList.add('visible');
-          }, idx * 80);
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    reveals.forEach(el => observer.observe(el));
-  </script>
+  <script src="script.js" defer></script>
 
 </body>
 </html>
