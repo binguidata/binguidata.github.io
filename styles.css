@@ -1,12 +1,12 @@
 :root {
-      --ink:       #102a43;
-      --ink-soft:  #40566b;
-      --ink-muted: #6d8295;
-      --paper:     #f7fafc;
-      --paper-2:   #eaf2f5;
-      --accent:    #007c83;
-      --accent-dim:#59c3bd;
-      --line:      rgba(16,42,67,.14);
+      --ink:       #161b2e;
+      --ink-soft:  #475467;
+      --ink-muted: #667085;
+      --paper:     #fbfcff;
+      --paper-2:   #eef2ff;
+      --accent:    #155eef;
+      --accent-dim:#a78bfa;
+      --line:      rgba(21,94,239,.16);
       --serif: 'DM Serif Display', Georgia, serif;
       --sans:  'DM Sans', sans-serif;
       --mono:  'DM Mono', monospace;
@@ -35,9 +35,10 @@
       z-index: 1000;
       opacity: .32;
       background:
-        radial-gradient(circle at 12% 18%, rgba(0,124,131,.08), transparent 25%),
-        linear-gradient(rgba(16,42,67,.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(16,42,67,.018) 1px, transparent 1px);
+        radial-gradient(circle at 12% 18%, rgba(21,94,239,.1), transparent 25%),
+        radial-gradient(circle at 88% 72%, rgba(167,139,250,.09), transparent 24%),
+        linear-gradient(rgba(21,94,239,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(21,94,239,.018) 1px, transparent 1px);
       background-size: auto, 32px 32px, 32px 32px;
     }
 
@@ -51,7 +52,7 @@
       justify-content: space-between;
       padding: 0 clamp(1.5rem, 5vw, 4rem);
       height: 64px;
-      background: rgba(247,250,252,.9);
+      background: rgba(251,252,255,.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
@@ -560,7 +561,7 @@
 
     .skill-group li {
       font-size: .88rem;
-      color: rgba(234,242,245,.76);
+      color: rgba(238,242,255,.78);
       display: flex;
       align-items: center;
       gap: .5rem;
@@ -653,7 +654,7 @@
       font-size: .68rem;
       letter-spacing: .2em;
       text-transform: uppercase;
-      color: rgba(234,242,245,.88);
+      color: rgba(238,242,255,.9);
       padding: 0 3rem;
     }
 
@@ -682,9 +683,9 @@
         align-items: stretch;
         gap: 0;
         padding: .75rem clamp(1.5rem, 5vw, 4rem) 1.25rem;
-        background: rgba(247,250,252,.98);
+        background: rgba(251,252,255,.98);
         border-bottom: 1px solid var(--line);
-        box-shadow: 0 14px 24px rgba(16,42,67,.1);
+        box-shadow: 0 14px 24px rgba(22,27,46,.12);
       }
       .nav-ready nav.is-open { display: flex; }
       .nav-ready nav a,
