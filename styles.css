@@ -7,9 +7,142 @@
       --accent:    #155eef;
       --accent-dim:#a78bfa;
       --line:      rgba(21,94,239,.16);
+
+      /* Surfaces that are deliberately dark in the light theme. These are
+         separate tokens because --ink is a TEXT color; reusing it as a panel
+         background makes those panels invert into bright slabs in dark mode. */
+      --deep:            #161b2e;
+      --on-deep:         #fbfcff;
+      --on-deep-soft:    rgba(238,242,255,.78);
+      --on-deep-faint:   rgba(238,242,255,.68);
+      --on-deep-line:    rgba(255,255,255,.12);
+
+      --surface-hover:   #fbfcff;
+      --header-bg:       rgba(251,252,255,.92);
+      --header-bg-solid: rgba(251,252,255,.98);
+      --nav-shadow:      rgba(22,27,46,.12);
+
+      --btn-bg:          #161b2e;
+      --btn-fg:          #fbfcff;
+      --btn-bg-hover:    #155eef;
+
+      --tex-a:    rgba(21,94,239,.1);
+      --tex-b:    rgba(167,139,250,.09);
+      --tex-grid: rgba(21,94,239,.018);
+      --badge-bg: rgba(167,139,250,.2);
       --serif: 'DM Serif Display', Georgia, serif;
       --sans:  'DM Sans', sans-serif;
       --mono:  'DM Mono', monospace;
+    }
+
+
+    /* ── DARK THEME (Phase 2.1) ───────────────────────────────────────────
+       Three states, not two. An explicit choice stamps data-theme on <html>;
+       the default "system" setting stamps nothing, so prefers-color-scheme is
+       the only signal. Tokens are redefined in both places; no component rule
+       ever lives inside these blocks. */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+      /* Text and page */
+      --ink:       #e6ecf8;
+      --ink-soft:  #a9b4cc;
+      --ink-muted: #8b97b1;
+      --paper:     #0f1421;
+      --paper-2:   #161d2e;
+
+      /* The cobalt is too dark to sit on a dark ground; lift it. The violet
+         carries over almost unchanged. */
+      --accent:    #7ba4ff;
+      --accent-dim:#b9a4ff;
+      --line:      rgba(123,164,255,.18);
+
+      /* Deep panels lift slightly ABOVE the page instead of dropping below it */
+      --deep:            #1b2338;
+      --on-deep:         #e9edfb;
+      --on-deep-soft:    rgba(233,237,251,.76);
+      --on-deep-faint:   rgba(233,237,251,.66);
+      --on-deep-line:    rgba(255,255,255,.1);
+
+      --surface-hover:   #1e2740;
+      --header-bg:       rgba(15,20,33,.92);
+      --header-bg-solid: rgba(15,20,33,.98);
+      --nav-shadow:      rgba(0,0,0,.5);
+
+      /* A dark slab would vanish into the page, so the primary button
+         becomes the accent with dark text on it */
+      --btn-bg:          #7ba4ff;
+      --btn-fg:          #0f1421;
+      --btn-bg-hover:    #a3c0ff;
+
+      --tex-a:    rgba(123,164,255,.07);
+      --tex-b:    rgba(185,164,255,.06);
+      --tex-grid: rgba(123,164,255,.028);
+      --badge-bg: rgba(185,164,255,.18);
+      }
+    }
+
+    :root[data-theme="dark"] {
+      /* Text and page */
+      --ink:       #e6ecf8;
+      --ink-soft:  #a9b4cc;
+      --ink-muted: #8b97b1;
+      --paper:     #0f1421;
+      --paper-2:   #161d2e;
+
+      /* The cobalt is too dark to sit on a dark ground; lift it. The violet
+         carries over almost unchanged. */
+      --accent:    #7ba4ff;
+      --accent-dim:#b9a4ff;
+      --line:      rgba(123,164,255,.18);
+
+      /* Deep panels lift slightly ABOVE the page instead of dropping below it */
+      --deep:            #1b2338;
+      --on-deep:         #e9edfb;
+      --on-deep-soft:    rgba(233,237,251,.76);
+      --on-deep-faint:   rgba(233,237,251,.66);
+      --on-deep-line:    rgba(255,255,255,.1);
+
+      --surface-hover:   #1e2740;
+      --header-bg:       rgba(15,20,33,.92);
+      --header-bg-solid: rgba(15,20,33,.98);
+      --nav-shadow:      rgba(0,0,0,.5);
+
+      /* A dark slab would vanish into the page, so the primary button
+         becomes the accent with dark text on it */
+      --btn-bg:          #7ba4ff;
+      --btn-fg:          #0f1421;
+      --btn-bg-hover:    #a3c0ff;
+
+      --tex-a:    rgba(123,164,255,.07);
+      --tex-b:    rgba(185,164,255,.06);
+      --tex-grid: rgba(123,164,255,.028);
+      --badge-bg: rgba(185,164,255,.18);
+    }
+
+    /* ── THEME TOGGLE ── */
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      background: transparent;
+      color: var(--ink-soft);
+      cursor: pointer;
+      font-size: .95rem;
+      line-height: 1;
+      transition: color .2s, border-color .2s;
+    }
+    .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+    .theme-toggle .icon-dark { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-dark { display: inline; }
+    :root[data-theme="dark"] .theme-toggle .icon-light { display: none; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-dark { display: inline; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-light { display: none; }
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,10 +168,10 @@
       z-index: 1000;
       opacity: .32;
       background:
-        radial-gradient(circle at 12% 18%, rgba(21,94,239,.1), transparent 25%),
-        radial-gradient(circle at 88% 72%, rgba(167,139,250,.09), transparent 24%),
-        linear-gradient(rgba(21,94,239,.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(21,94,239,.018) 1px, transparent 1px);
+        radial-gradient(circle at 12% 18%, var(--tex-a), transparent 25%),
+        radial-gradient(circle at 88% 72%, var(--tex-b), transparent 24%),
+        linear-gradient(var(--tex-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--tex-grid) 1px, transparent 1px);
       background-size: auto, 32px 32px, 32px 32px;
     }
 
@@ -52,7 +185,7 @@
       justify-content: space-between;
       padding: 0 clamp(1.5rem, 5vw, 4rem);
       height: 64px;
-      background: rgba(251,252,255,.92);
+      background: var(--header-bg);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
@@ -217,14 +350,14 @@
     }
 
     .btn-primary {
-      background: var(--ink);
-      color: var(--paper);
-      border: 1px solid var(--ink);
+      background: var(--btn-bg);
+      color: var(--btn-fg);
+      border: 1px solid var(--btn-bg);
     }
 
     .btn-primary:hover {
-      background: var(--accent);
-      border-color: var(--accent);
+      background: var(--btn-bg-hover);
+      border-color: var(--btn-bg-hover);
     }
 
     .btn-outline {
@@ -268,7 +401,7 @@
       text-decoration: none;
     }
 
-    .stat-card:hover { background: var(--paper); }
+    .stat-card:hover { background: var(--surface-hover); }
 
     .stat-number {
       font-family: var(--serif);
@@ -527,11 +660,11 @@
 
     /* ── SKILLS SECTION ── */
     #skills {
-      background: var(--ink);
-      color: var(--paper);
+      background: var(--deep);
+      color: var(--on-deep);
     }
 
-    #skills .section-title { color: var(--paper); }
+    #skills .section-title { color: var(--on-deep); }
     #skills .section-title em { color: var(--accent-dim); }
     #skills .section-num { color: var(--accent-dim); }
 
@@ -549,7 +682,7 @@
       color: var(--accent-dim);
       margin-bottom: 1rem;
       padding-bottom: .5rem;
-      border-bottom: 1px solid rgba(255,255,255,.12);
+      border-bottom: 1px solid var(--on-deep-line);
     }
 
     .skill-group ul {
@@ -561,7 +694,7 @@
 
     .skill-group li {
       font-size: .88rem;
-      color: rgba(238,242,255,.78);
+      color: var(--on-deep-soft);
       display: flex;
       align-items: center;
       gap: .5rem;
@@ -654,7 +787,7 @@
       font-size: .68rem;
       letter-spacing: .2em;
       text-transform: uppercase;
-      color: rgba(238,242,255,.9);
+      color: var(--on-deep);
       padding: 0 3rem;
     }
 
@@ -683,9 +816,9 @@
         align-items: stretch;
         gap: 0;
         padding: .75rem clamp(1.5rem, 5vw, 4rem) 1.25rem;
-        background: rgba(251,252,255,.98);
+        background: var(--header-bg-solid);
         border-bottom: 1px solid var(--line);
-        box-shadow: 0 14px 24px rgba(22,27,46,.12);
+        box-shadow: 0 14px 24px var(--nav-shadow);
       }
       .nav-ready nav.is-open { display: flex; }
       .nav-ready nav a,
@@ -696,6 +829,7 @@
         text-align: left;
       }
       .nav-ready nav .btn { margin-top: .45rem; padding: .7rem 1rem !important; text-align: center; }
+      .nav-ready nav .theme-toggle { align-self: flex-start; margin-top: .6rem; }
 
       html:not(.nav-ready) header {
         position: static;
@@ -747,7 +881,7 @@
     /* Current-positions card (index hero) */
     .positions-card {
       grid-column: 1 / -1;
-      background: var(--ink);
+      background: var(--deep);
       padding: 1.6rem 1.5rem;
     }
     .positions-label {
@@ -782,18 +916,18 @@
     .position-role {
       font-family: var(--serif);
       font-size: 1rem;
-      color: var(--paper);
+      color: var(--on-deep);
       line-height: 1.3;
     }
     .position-org {
       font-size: .78rem;
-      color: rgba(238, 242, 255, .68);
+      color: var(--on-deep-faint);
       margin-top: .2rem;
     }
     .badge-spinoff {
       font-family: var(--mono);
       font-size: .62rem;
-      background: rgba(167, 139, 250, .2);
+      background: var(--badge-bg);
       color: var(--accent-dim);
       padding: .1rem .45rem;
       border-radius: 2px;

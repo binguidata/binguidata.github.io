@@ -53,3 +53,31 @@ if ('IntersectionObserver' in window && !reduceMotion) {
 
   reveals.forEach((element) => observer.observe(element));
 }
+
+const themeToggle = document.querySelector('.theme-toggle');
+
+if (themeToggle) {
+  const root = document.documentElement;
+  const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+  const activeTheme = () =>
+    root.getAttribute('data-theme') || (systemDark.matches ? 'dark' : 'light');
+
+  const describe = () => {
+    const dark = activeTheme() === 'dark';
+    themeToggle.setAttribute('aria-pressed', String(dark));
+    themeToggle.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+  };
+
+  describe();
+
+  themeToggle.addEventListener('click', () => {
+    const next = activeTheme() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (error) { /* private mode */ }
+    describe();
+  });
+
+  // Follow the OS while the visitor has not made an explicit choice
+  systemDark.addEventListener('change', describe);
+}
