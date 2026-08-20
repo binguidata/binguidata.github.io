@@ -1,0 +1,5 @@
+# Source documents that must never publish — this repo is served
+# wholesale at https://binguidata.github.io/
+Bin_Gui_resume.pdf
+*_resume.pdf
+*_cv.pdf

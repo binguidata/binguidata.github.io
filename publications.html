@@ -10,15 +10,18 @@
   <meta property="og:description" content="Selected work in high-energy physics, particle detection, and scientific instrumentation." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://binguidata.github.io/publications.html" />
-  <link rel="icon" href="favicon.svg?v=20260716-3" type="image/svg+xml" />
+  <!-- @shared:head -->
+  <link rel="icon" href="favicon.svg?v=20260819-1" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260716-3" />
+  <link rel="stylesheet" href="styles.css?v=20260819-1" />
+  <!-- @end:head -->
 </head>
 <body>
 
   <!-- NAV -->
+  <!-- @shared:nav -->
   <header>
     <a class="nav-logo" href="index.html">Bin <span>Gui</span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">
@@ -29,35 +32,36 @@
       <a href="research.html">Research</a>
       <a href="publications.html" aria-current="page">Publications</a>
       <a href="skills.html">Skills</a>
-      <a href="mailto:bingui@cmu.edu" class="btn btn-primary" style="padding:.4rem 1rem">Contact</a>
+      <a href="mailto:bingui@cmu.edu" class="btn btn-primary btn-nav">Contact</a>
     </nav>
   </header>
+  <!-- @end:nav -->
 
   <!-- PUBLICATIONS -->
   <main>
-  <section style="padding: clamp(4rem,8vw,8rem) clamp(1.5rem,5vw,4rem);" id="publications">
-    <div style="max-width:900px; margin:0 auto;">
+  <section class="pub-section" id="publications">
+    <div class="pub-wrap">
       <div class="section-header reveal">
         <span class="section-num">02 /</span>
         <h1 class="section-title">Publications</h1>
       </div>
 
-      <div class="reveal" style="text-align:center; padding:2rem 0 3rem;">
-        <div style="display:inline-block; background:var(--paper-2); border:1px solid var(--line); border-radius:4px; padding:2.5rem 3rem; max-width:600px;">
-          <div style="font-family:var(--serif); font-size:3.5rem; line-height:1; color:var(--ink); margin-bottom:.5rem;">871</div>
-          <div style="font-family:var(--mono); font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:1.5rem;">Publications</div>
-          <div style="font-size:.9rem; line-height:1.7; color:var(--ink-soft); margin-bottom:2rem;">
-            With <strong>128,128 citations</strong>, h-index of <strong>175</strong>, and i10-index of <strong>475</strong>
+      <div class="reveal pub-metrics">
+        <div class="metrics-card">
+          <div class="metrics-number" data-sync="scholar.publications">871</div>
+          <div class="metrics-label">Publications</div>
+          <div class="metrics-detail">
+            With <strong data-sync="scholar.citations">128,128</strong> citations, h-index of <strong data-sync="scholar.h_index">175</strong>, and i10-index of <strong data-sync="scholar.i10_index">475</strong>
           </div>
           <a href="https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ&view_op=list_works&sortby=pubdate"
-             target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-flex;">
+             target="_blank" rel="noopener" class="btn btn-primary btn-inline">
             Full List on Google Scholar ↗
           </a>
         </div>
       </div>
 
-      <div style="margin-top:2rem; padding-top:2rem; border-top:1px solid var(--line);">
-        <h3 style="font-family:var(--serif); font-size:1.4rem; margin-bottom:2rem; color:var(--ink);">Selected Publications</h3>
+      <div class="pub-selected">
+        <h3 class="pub-selected-title">Selected Publications</h3>
         
         <div class="pub-list">
           <div class="pub-item reveal">
@@ -111,7 +115,7 @@
               <div class="pub-title"><a href="https://doi.org/10.1103/PhysRevLett.110.222001" target="_blank" rel="noopener">Determination of the X(3872) meson quantum numbers</a></div>
               <div class="pub-authors"><strong>Bin Gui</strong>, et al.</div>
               <div class="pub-venue">Phys. Rev. Lett. 110, 222001</div>
-              <div style="margin-top:.6rem; font-size:.75rem; color:var(--ink-muted);">
+              <div class="pub-note">
                 Featured in <em>CERN Courier</em> (March 2013) and <em>Science Museum Blog</em>
               </div>
             </div>
@@ -151,12 +155,14 @@
 
 
   <!-- FOOTER -->
+  <!-- @shared:footer -->
   <footer>
     <div class="footer-name">Bin Gui</div>
     <div class="footer-note">Senior Project Scientist, CMU &nbsp;·&nbsp; Chief Data Scientist, TraffiQure Technologies</div>
   </footer>
+  <!-- @end:footer -->
 
-  <script src="script.js?v=20260716-3" defer></script>
+  <script src="script.js?v=20260819-1" defer></script>
 
 </body>
 </html>

@@ -3,22 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bin Gui — Senior Project Scientist & Chief Data Scientist</title>
+  <title>Bin Gui — Senior Project Scientist &amp; Chief Data Scientist</title>
   <meta name="description" content="Bin Gui is a senior project scientist at Carnegie Mellon University and chief data scientist at TraffiQure, specializing in transportation AI, network modeling, and complex systems." />
   <link rel="canonical" href="https://binguidata.github.io/index.html" />
-  <meta property="og:title" content="Bin Gui — Transportation AI & Complex Systems" />
+  <meta property="og:title" content="Bin Gui — Transportation AI &amp; Complex Systems" />
   <meta property="og:description" content="Research and applied work in transportation AI, network modeling, data science, and high-energy physics." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://binguidata.github.io/index.html" />
-  <link rel="icon" href="favicon.svg?v=20260716-3" type="image/svg+xml" />
+  <!-- @shared:head -->
+  <link rel="icon" href="favicon.svg?v=20260819-1" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20260716-3" />
+  <link rel="stylesheet" href="styles.css?v=20260819-1" />
+  <!-- @end:head -->
 </head>
 <body>
 
   <!-- NAV -->
+  <!-- @shared:nav -->
   <header>
     <a class="nav-logo" href="index.html">Bin <span>Gui</span></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">
@@ -29,9 +32,10 @@
       <a href="research.html">Research</a>
       <a href="publications.html">Publications</a>
       <a href="skills.html">Skills</a>
-      <a href="mailto:bingui@cmu.edu" class="btn btn-primary" style="padding:.4rem 1rem">Contact</a>
+      <a href="mailto:bingui@cmu.edu" class="btn btn-primary btn-nav">Contact</a>
     </nav>
   </header>
+  <!-- @end:nav -->
 
   <!-- HERO -->
   <main class="hero" id="top">
@@ -43,7 +47,7 @@
       <p class="hero-bio">
         Ph.D. in Physics with a strong background in analyzing complex systems and developing practical solutions.
         Currently serving as <strong>Senior Project Scientist</strong> at CMU's Department of Civil and Environmental Engineering
-        and <strong>Chief Data Scientist</strong> at <a href="https://www.traffiqure.com" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-dim)">TraffiQure Technologies</a> — 
+        and <strong>Chief Data Scientist</strong> at <a href="https://www.traffiqure.com" target="_blank" rel="noopener">TraffiQure Technologies</a> —
         a CMU spinoff using AI &amp; ML to improve transportation system planning and operation.
       </p>
       <div class="hero-links">
@@ -59,40 +63,40 @@
 
     <div class="hero-right">
       <div class="stats-grid">
-        <div class="stat-card" style="grid-column:1/-1; background:var(--ink); padding:1.6rem 1.5rem;">
-          <div style="font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent-dim);margin-bottom:.5rem;">Current Positions</div>
-          <div style="display:flex;flex-direction:column;gap:1rem;margin-top:.2rem;">
-            <div style="display:flex;align-items:flex-start;gap:.8rem;">
-              <div style="width:3px;height:100%;min-height:2.8rem;background:var(--accent);flex-shrink:0;border-radius:2px;margin-top:.2rem;"></div>
+        <div class="stat-card positions-card">
+          <div class="positions-label">Current Positions</div>
+          <div class="positions-list">
+            <div class="position">
+              <div class="position-bar"></div>
               <div>
-                <div style="font-family:var(--serif);font-size:1rem;color:var(--paper);line-height:1.3;">Senior Project Scientist</div>
-                <div style="font-size:.78rem;color:rgba(238,242,255,.68);margin-top:.2rem;">Carnegie Mellon University · CEE Dept.</div>
+                <div class="position-role">Senior Project Scientist</div>
+                <div class="position-org">Carnegie Mellon University · CEE Dept.</div>
               </div>
             </div>
-            <div style="display:flex;align-items:flex-start;gap:.8rem;">
-              <div style="width:3px;height:100%;min-height:2.8rem;background:var(--accent-dim);flex-shrink:0;border-radius:2px;margin-top:.2rem;"></div>
+            <div class="position">
+              <div class="position-bar alt"></div>
               <div>
-                <div style="font-family:var(--serif);font-size:1rem;color:var(--paper);line-height:1.3;">Chief Data Scientist</div>
-                <div style="font-size:.78rem;color:rgba(238,242,255,.68);margin-top:.2rem;">TraffiQure Technologies &nbsp;<span style="font-family:var(--mono);font-size:.62rem;background:rgba(167,139,250,.2);color:var(--accent-dim);padding:.1rem .45rem;border-radius:2px;letter-spacing:.08em;">CMU Spinoff</span></div>
+                <div class="position-role">Chief Data Scientist</div>
+                <div class="position-org">TraffiQure Technologies &nbsp;<span class="badge-spinoff">CMU Spinoff</span></div>
               </div>
             </div>
           </div>
         </div>
         <a class="stat-card" href="https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ" target="_blank" rel="noopener" aria-label="View citation count on Google Scholar">
-          <div class="stat-number">128<span>k</span></div>
+          <div class="stat-number"><span data-sync="scholar.citations_k">128</span><span class="stat-unit">k</span></div>
           <div class="stat-label">Citations</div>
         </a>
         <a class="stat-card" href="https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ" target="_blank" rel="noopener" aria-label="View h-index on Google Scholar">
-          <div class="stat-number">175</div>
+          <div class="stat-number" data-sync="scholar.h_index">175</div>
           <div class="stat-label">h-index</div>
         </a>
         <a class="stat-card" href="https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ" target="_blank" rel="noopener" aria-label="View i10-index on Google Scholar">
-          <div class="stat-number">475</div>
+          <div class="stat-number" data-sync="scholar.i10_index">475</div>
           <div class="stat-label">i10-index</div>
         </a>
       </div>
-      <div style="font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;color:var(--ink-muted);margin-top:.6rem;text-align:right;">
-        via <a href="https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ" target="_blank" rel="noopener" style="color:var(--ink-muted);text-decoration:none;border-bottom:1px solid var(--line);">Google Scholar</a>
+      <div class="stat-source">
+        via <a href="https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
       </div>
 
       <div class="contact-block">
@@ -108,12 +112,14 @@
 
 
   <!-- FOOTER -->
+  <!-- @shared:footer -->
   <footer>
     <div class="footer-name">Bin Gui</div>
     <div class="footer-note">Senior Project Scientist, CMU &nbsp;·&nbsp; Chief Data Scientist, TraffiQure Technologies</div>
   </footer>
+  <!-- @end:footer -->
 
-  <script src="script.js?v=20260716-3" defer></script>
+  <script src="script.js?v=20260819-1" defer></script>
 
 </body>
 </html>
