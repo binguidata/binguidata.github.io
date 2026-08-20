@@ -401,7 +401,10 @@
       text-decoration: none;
     }
 
-    .stat-card:hover { background: var(--surface-hover); }
+    /* Only the three linked tiles are interactive. The positions card is a
+       plain <div> with a deliberately dark background, and a hover repaint
+       there turns its near-white text invisible. */
+    a.stat-card:hover { background: var(--surface-hover); }
 
     .stat-number {
       font-family: var(--serif);
@@ -524,7 +527,7 @@
       transition: background .25s;
     }
 
-    .research-card:hover { background: var(--paper); }
+    .research-card:hover { background: var(--surface-hover); }
 
     .research-card::before {
       content: '';
