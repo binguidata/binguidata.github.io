@@ -1,17 +1,18 @@
 {
   "version": "20260819-1",
   "titles": {
-    "cmu": "Senior Project Scientist",
-    "cmu_lower": "senior project scientist",
+    "cmu": "Senior System Scientist",
+    "cmu_lower": "senior system scientist",
     "traffiqure": "Chief Data Scientist"
   },
   "scholar": {
-    "citations": "128,128",
-    "citations_short": "128k",
-    "h_index": "175",
-    "i10_index": "475",
+    "citations": "131,196",
+    "citations_short": "131k",
+    "h_index": "179",
+    "i10_index": "473",
     "publications": "871",
+    "as_of": "August 2026",
     "profile": "https://scholar.google.com/citations?hl=en&user=JZkJN2MAAAAJ",
-    "citations_k": "128"
+    "citations_k": "131"
   }
 }
