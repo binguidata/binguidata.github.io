@@ -1097,3 +1097,19 @@
       .timeline-item, .edu-item { grid-template-columns: 1fr; gap: .4rem; }
       .timeline-years { padding-top: 0; }
     }
+
+    /* ── 404 (Phase 3.2) ── */
+    .notfound {
+      min-height: calc(100vh - 64px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: calc(64px + clamp(4rem, 8vw, 8rem));
+    }
+    .notfound-text {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--ink-soft);
+      max-width: 52ch;
+      margin-bottom: 2.5rem;
+    }
