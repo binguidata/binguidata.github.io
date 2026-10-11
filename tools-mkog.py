@@ -339,11 +339,11 @@ for gy in range(0, H, 48):
     c.rect(90, gy, W, gy + 1, (0x1b, 0x21, 0x36))
 
 M = 90
-c.text(mono, "CARNEGIE MELLON UNIVERSITY  ·  TRAFFIQURE", 19, M, 132, ACCENT_DIM, tracking=2.4)
+c.text(mono, "TRAFFIQURE TECHNOLOGIES", 19, M, 132, ACCENT_DIM, tracking=2.4)
 c.text(serif, "Bin Gui", 104, M - 6, 250, PAPER)
 c.rect(M, 286, M + 64, 290, ACCENT)
-c.text(sans, "Senior System Scientist", 40, M, 360, PAPER)
-c.text(sans, "Chief Data Scientist, TraffiQure Technologies", 30, M, 412, MUTED)
+c.text(sans, "Chief Data Scientist", 40, M, 360, PAPER)
+c.text(sans, "TraffiQure Technologies", 30, M, 412, MUTED)
 c.text(mono, "TRANSPORTATION AI   ·   NETWORK MODELING   ·   COMPLEX SYSTEMS",
        17, M, 520, ACCENT_DIM, tracking=1.6)
 c.text(mono, "binguidata.github.io", 20, M, 566, MUTED, tracking=1.0)

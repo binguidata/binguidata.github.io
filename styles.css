@@ -271,11 +271,12 @@
     .hero {
       min-height: 100vh;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       padding-top: 64px;
     }
 
     .hero-left {
+      min-width: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -372,6 +373,7 @@
     }
 
     .hero-right {
+      min-width: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -382,7 +384,7 @@
     /* ── STAT CARDS ── */
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1px;
       background: var(--line);
       border: 1px solid var(--line);
@@ -390,6 +392,7 @@
     }
 
     .stat-card {
+      min-width: 0;
       background: var(--paper-2);
       padding: 1.5rem;
       transition: background .2s;
@@ -513,7 +516,7 @@
 
     .research-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
       gap: 1px;
       background: var(--line);
       border: 1px solid var(--line);
@@ -802,7 +805,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
       .hero {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         min-height: auto;
       }
       .hero-left { border-right: none; border-bottom: 1px solid var(--line); }
@@ -818,6 +821,10 @@
         flex-direction: column;
         align-items: stretch;
         gap: 0;
+        max-height: calc(100vh - 64px);
+        max-height: calc(100dvh - 64px);
+        overflow-y: auto;
+        overscroll-behavior: contain;
         padding: .75rem clamp(1.5rem, 5vw, 4rem) 1.25rem;
         background: var(--header-bg-solid);
         border-bottom: 1px solid var(--line);
@@ -832,7 +839,7 @@
         text-align: left;
       }
       .nav-ready nav .btn { margin-top: .45rem; padding: .7rem 1rem !important; text-align: center; }
-      .nav-ready nav .theme-toggle { align-self: flex-start; margin-top: .6rem; }
+      .nav-ready nav .theme-toggle { align-self: flex-start; flex-shrink: 0; margin-top: .6rem; }
 
       html:not(.nav-ready) header {
         position: static;
@@ -854,6 +861,7 @@
 
     @media (max-width: 480px) {
       .hero-links { flex-direction: column; }
+      .stats-grid > a.stat-card { padding-inline: .5rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -864,6 +872,17 @@
         transition-duration: .01ms !important;
       }
       .reveal-pending { opacity: 1; transform: none; }
+    }
+
+    @media print {
+      .reveal,
+      .hero-left > *,
+      .hero-right > * {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+      }
     }
 
     /* ── EXTRACTED FROM INLINE STYLES (Phase 0.1) ──

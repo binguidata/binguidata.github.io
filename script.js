@@ -26,7 +26,11 @@ if (navToggle && nav) {
   });
 
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeNav();
+    if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+      event.preventDefault();
+      closeNav();
+      navToggle.focus();
+    }
   });
 
   window.addEventListener('resize', () => {

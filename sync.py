@@ -6,7 +6,7 @@ valid on their own; this script only rewrites regions that are already there,
 in place. If it is never run, the site still works exactly as committed.
 
   ./sync.py           rewrite pages from _partials/
-  ./sync.py --check   report drift, change nothing (exit 1 if any)
+  ./sync.py --check   report drift or invalid markers, change nothing (exit 1 if any)
 
 Two mechanisms:
 
@@ -52,6 +52,10 @@ def fill(text, data):
 
 def apply_region(html, name, body):
     """Replace the content between the markers for one region."""
+    start_markers = re.findall(rf"<!--\s*@shared:{name}\s*-->", html)
+    end_markers = re.findall(rf"<!--\s*@end:{name}\s*-->", html)
+    if len(start_markers) != 1 or len(end_markers) != 1:
+        return html, False
     pattern = re.compile(
         rf"(<!--\s*@shared:{name}\s*-->\n)(.*?)(^[ \t]*<!--\s*@end:{name}\s*-->)",
         re.DOTALL | re.MULTILINE,
@@ -94,6 +98,7 @@ def main():
         bodies[name] = fill((PARTIALS / f"{name}.html").read_text(), data)
 
     drifted = []
+    invalid = []
     for page in PAGES:
         original = page.read_text()
         html = original
@@ -111,22 +116,23 @@ def main():
 
         missing = set(REGIONS) - set(found)
         if missing:
-            print(f"  ! {page.name}: no markers for {', '.join(sorted(missing))}")
+            invalid.append(page.name)
+            print(f"  ! {page.name}: missing or malformed markers for {', '.join(sorted(missing))}")
 
         if html != original:
             drifted.append(page.name)
             if not check:
                 page.write_text(html)
                 print(f"  ~ {page.name} updated")
-        elif not check:
+        elif not check and not missing:
             print(f"  = {page.name} already current")
 
     if check:
         if drifted:
             print(f"drift in: {', '.join(drifted)}")
-            return 1
-        print("all pages current")
-    return 0
+        if not drifted and not invalid:
+            print("all pages current")
+    return 1 if invalid or (check and drifted) else 0
 
 
 if __name__ == "__main__":
