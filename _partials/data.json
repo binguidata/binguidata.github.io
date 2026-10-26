@@ -9,7 +9,8 @@
     "url": "https://mobilidi.ai"
   },
   "contact": {
-    "email": "admin@mobilidi.ai"
+    "email": "admin@mobilidi.ai",
+    "display": "admin [at] mobilidi [dot] ai"
   },
   "scholar": {
     "citations": "131,196",
