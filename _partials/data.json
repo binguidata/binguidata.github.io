@@ -1,7 +1,15 @@
 {
-  "version": "20261011-2",
+  "version": "20261026-1",
   "titles": {
+    "mobilidi": "Co-founder & CEO",
     "traffiqure": "Chief Data Scientist"
+  },
+  "company": {
+    "name": "MobiliDi.ai, Inc.",
+    "url": "https://mobilidi.ai"
+  },
+  "contact": {
+    "email": "admin@mobilidi.ai"
   },
   "scholar": {
     "citations": "131,196",
