@@ -316,36 +316,30 @@ class Canvas:
 
 
 # ────────────────────────────────────────────────────────────── card ──
-INK        = (0x17, 0x17, 0x17)
-PAPER      = (0xfa, 0xfa, 0xfa)
+INK        = (0x1c, 0x1b, 0x1b)
+PAPER      = (0xfa, 0xf9, 0xf7)
 ACCENT     = (0xc4, 0x12, 0x30)
-ACCENT_DIM = (0xf1, 0x9b, 0xa8)
-MUTED      = (0xb8, 0xb8, 0xb8)
+MUTED      = (0x5b, 0x58, 0x58)
+RULE       = (0xdf, 0xdc, 0xd9)
 
 W, H = 1200, 630
-c = Canvas(W, H, INK)
+c = Canvas(W, H, PAPER)
 
-serif = Font(FONT_DIR + "DejaVuSerif.ttf")
 sans  = Font(FONT_DIR + "DejaVuSans.ttf")
+bold  = Font(FONT_DIR + "DejaVuSans-Bold.ttf")
 mono  = Font(FONT_DIR + "DejaVuSansMono.ttf")
 
-# accent rule down the left edge, echoing the site's position bars
-c.rect(0, 0, 10, H, ACCENT)
-
-# faint grid, matching the site's texture overlay
-for gx in range(90, W, 48):
-    c.rect(gx, 0, gx + 1, H, (0x20, 0x20, 0x20))
-for gy in range(0, H, 48):
-    c.rect(90, gy, W, gy + 1, (0x20, 0x20, 0x20))
+# A short Carnegie Red rule and a quiet divider frame the text.
+c.rect(90, 74, 156, 80, ACCENT)
+c.rect(90, 467, W - 90, 468, RULE)
 
 M = 90
-c.text(mono, "MOBILIDI.AI, INC.", 19, M, 132, ACCENT_DIM, tracking=2.4)
-c.text(serif, "Bin Gui", 104, M - 6, 250, PAPER)
-c.rect(M, 286, M + 64, 290, ACCENT)
-c.text(sans, "Co-founder & CEO", 40, M, 360, PAPER)
+c.text(mono, "MOBILIDI.AI, INC.", 19, M, 132, ACCENT, tracking=2.4)
+c.text(bold, "Bin Gui", 100, M - 4, 250, INK)
+c.text(sans, "Co-founder & CEO", 40, M, 360, INK)
 c.text(sans, "MobiliDi.ai, Inc.", 30, M, 412, MUTED)
 c.text(mono, "TRANSPORTATION AI   ·   NETWORK MODELING   ·   COMPLEX SYSTEMS",
-       17, M, 520, ACCENT_DIM, tracking=1.6)
+       17, M, 520, ACCENT, tracking=1.6)
 c.text(mono, "binguidata.github.io", 20, M, 566, MUTED, tracking=1.0)
 
 size = c.write_png("og-card.png")
