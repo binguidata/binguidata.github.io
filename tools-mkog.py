@@ -316,11 +316,11 @@ class Canvas:
 
 
 # ────────────────────────────────────────────────────────────── card ──
-INK        = (0x16, 0x1b, 0x2e)
-PAPER      = (0xfb, 0xfc, 0xff)
-ACCENT     = (0x4d, 0x86, 0xff)
-ACCENT_DIM = (0xa7, 0x8b, 0xfa)
-MUTED      = (0x9a, 0xa5, 0xbf)
+INK        = (0x17, 0x17, 0x17)
+PAPER      = (0xfa, 0xfa, 0xfa)
+ACCENT     = (0xc4, 0x12, 0x30)
+ACCENT_DIM = (0xf1, 0x9b, 0xa8)
+MUTED      = (0xb8, 0xb8, 0xb8)
 
 W, H = 1200, 630
 c = Canvas(W, H, INK)
@@ -334,9 +334,9 @@ c.rect(0, 0, 10, H, ACCENT)
 
 # faint grid, matching the site's texture overlay
 for gx in range(90, W, 48):
-    c.rect(gx, 0, gx + 1, H, (0x1b, 0x21, 0x36))
+    c.rect(gx, 0, gx + 1, H, (0x20, 0x20, 0x20))
 for gy in range(0, H, 48):
-    c.rect(90, gy, W, gy + 1, (0x1b, 0x21, 0x36))
+    c.rect(90, gy, W, gy + 1, (0x20, 0x20, 0x20))
 
 M = 90
 c.text(mono, "MOBILIDI.AI, INC.", 19, M, 132, ACCENT_DIM, tracking=2.4)

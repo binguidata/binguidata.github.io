@@ -1,122 +1,106 @@
 :root {
-      --ink:       #161b2e;
-      --ink-soft:  #475467;
-      --ink-muted: #667085;
-      --paper:     #fbfcff;
-      --paper-2:   #eef2ff;
-      --accent:    #155eef;
-      --accent-dim:#a78bfa;
-      --line:      rgba(21,94,239,.16);
+      --ink:       #1b1b1b;
+      --ink-soft:  #4c4c4c;
+      --ink-muted: #666666;
+      --paper:     #fdfdfd;
+      --paper-2:   #f3f3f3;
+      --accent:    #c41230;
+      --accent-dim:#ff9bad;
+      --focus:     #c41230;
+      --line:      rgba(196,18,48,.16);
+      --brand-red: #c41230;
+      --on-brand:  #ffffff;
 
-      /* Surfaces that are deliberately dark in the light theme. These are
-         separate tokens because --ink is a TEXT color; reusing it as a panel
-         background makes those panels invert into bright slabs in dark mode. */
-      --deep:            #161b2e;
-      --on-deep:         #fbfcff;
-      --on-deep-soft:    rgba(238,242,255,.78);
-      --on-deep-faint:   rgba(238,242,255,.68);
+      /* Dark panels retain their own text colors in both themes. */
+      --deep:            #191919;
+      --on-deep:         #f8f8f8;
+      --on-deep-soft:    rgba(248,248,248,.78);
+      --on-deep-faint:   rgba(248,248,248,.68);
       --on-deep-line:    rgba(255,255,255,.12);
 
-      --surface-hover:   #fbfcff;
-      --header-bg:       rgba(251,252,255,.92);
-      --header-bg-solid: rgba(251,252,255,.98);
-      --nav-shadow:      rgba(22,27,46,.12);
+      --surface-hover:   #fdfdfd;
+      --header-bg:       rgba(253,253,253,.92);
+      --header-bg-solid: rgba(253,253,253,.98);
+      --nav-shadow:      rgba(0,0,0,.12);
 
-      --btn-bg:          #161b2e;
-      --btn-fg:          #fbfcff;
-      --btn-bg-hover:    #155eef;
+      --btn-bg:          #1b1b1b;
+      --btn-fg:          #ffffff;
+      --btn-bg-hover:    #c41230;
 
-      --tex-a:    rgba(21,94,239,.1);
-      --tex-b:    rgba(167,139,250,.09);
-      --tex-grid: rgba(21,94,239,.018);
-      --badge-bg: rgba(167,139,250,.2);
+      --tex-a:    rgba(196,18,48,.1);
+      --tex-b:    rgba(196,18,48,.06);
+      --tex-grid: rgba(196,18,48,.018);
+      --badge-bg: rgba(196,18,48,.2);
       --serif: 'DM Serif Display', Georgia, serif;
       --sans:  'DM Sans', sans-serif;
       --mono:  'DM Mono', monospace;
     }
 
-
-    /* ── DARK THEME (Phase 2.1) ───────────────────────────────────────────
-       Three states, not two. An explicit choice stamps data-theme on <html>;
-       the default "system" setting stamps nothing, so prefers-color-scheme is
-       the only signal. Tokens are redefined in both places; no component rule
-       ever lives inside these blocks. */
+    /* The default follows the system; an explicit theme overrides it. */
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
-      /* Text and page */
-      --ink:       #e6ecf8;
-      --ink-soft:  #a9b4cc;
-      --ink-muted: #8b97b1;
-      --paper:     #0f1421;
-      --paper-2:   #161d2e;
+        --ink:       #f0f0f0;
+        --ink-soft:  #c2c2c2;
+        --ink-muted: #b0b0b0;
+        --paper:     #141414;
+        --paper-2:   #242424;
+        --accent:    #ff93a4;
+        --accent-dim:#ffabb9;
+        --focus:     #ff93a4;
+        --line:      rgba(255,147,164,.2);
 
-      /* The cobalt is too dark to sit on a dark ground; lift it. The violet
-         carries over almost unchanged. */
-      --accent:    #7ba4ff;
-      --accent-dim:#b9a4ff;
-      --line:      rgba(123,164,255,.18);
+        --deep:            #292929;
+        --on-deep:         #f8f8f8;
+        --on-deep-soft:    rgba(248,248,248,.8);
+        --on-deep-faint:   rgba(248,248,248,.72);
+        --on-deep-line:    rgba(255,255,255,.12);
 
-      /* Deep panels lift slightly ABOVE the page instead of dropping below it */
-      --deep:            #1b2338;
-      --on-deep:         #e9edfb;
-      --on-deep-soft:    rgba(233,237,251,.76);
-      --on-deep-faint:   rgba(233,237,251,.66);
-      --on-deep-line:    rgba(255,255,255,.1);
+        --surface-hover:   #303030;
+        --header-bg:       rgba(20,20,20,.92);
+        --header-bg-solid: rgba(20,20,20,.98);
+        --nav-shadow:      rgba(0,0,0,.5);
 
-      --surface-hover:   #1e2740;
-      --header-bg:       rgba(15,20,33,.92);
-      --header-bg-solid: rgba(15,20,33,.98);
-      --nav-shadow:      rgba(0,0,0,.5);
+        --btn-bg:          #c41230;
+        --btn-fg:          #ffffff;
+        --btn-bg-hover:    #a61029;
 
-      /* A dark slab would vanish into the page, so the primary button
-         becomes the accent with dark text on it */
-      --btn-bg:          #7ba4ff;
-      --btn-fg:          #0f1421;
-      --btn-bg-hover:    #a3c0ff;
-
-      --tex-a:    rgba(123,164,255,.07);
-      --tex-b:    rgba(185,164,255,.06);
-      --tex-grid: rgba(123,164,255,.028);
-      --badge-bg: rgba(185,164,255,.18);
+        --tex-a:    rgba(255,147,164,.07);
+        --tex-b:    rgba(196,18,48,.07);
+        --tex-grid: rgba(255,147,164,.028);
+        --badge-bg: rgba(196,18,48,.2);
       }
     }
 
     :root[data-theme="dark"] {
-      /* Text and page */
-      --ink:       #e6ecf8;
-      --ink-soft:  #a9b4cc;
-      --ink-muted: #8b97b1;
-      --paper:     #0f1421;
-      --paper-2:   #161d2e;
+      --ink:       #f0f0f0;
+      --ink-soft:  #c2c2c2;
+      --ink-muted: #b0b0b0;
+      --paper:     #141414;
+      --paper-2:   #242424;
+      --accent:    #ff93a4;
+      --accent-dim:#ffabb9;
+      --focus:     #ff93a4;
+      --line:      rgba(255,147,164,.2);
 
-      /* The cobalt is too dark to sit on a dark ground; lift it. The violet
-         carries over almost unchanged. */
-      --accent:    #7ba4ff;
-      --accent-dim:#b9a4ff;
-      --line:      rgba(123,164,255,.18);
+      --deep:            #292929;
+      --on-deep:         #f8f8f8;
+      --on-deep-soft:    rgba(248,248,248,.8);
+      --on-deep-faint:   rgba(248,248,248,.72);
+      --on-deep-line:    rgba(255,255,255,.12);
 
-      /* Deep panels lift slightly ABOVE the page instead of dropping below it */
-      --deep:            #1b2338;
-      --on-deep:         #e9edfb;
-      --on-deep-soft:    rgba(233,237,251,.76);
-      --on-deep-faint:   rgba(233,237,251,.66);
-      --on-deep-line:    rgba(255,255,255,.1);
-
-      --surface-hover:   #1e2740;
-      --header-bg:       rgba(15,20,33,.92);
-      --header-bg-solid: rgba(15,20,33,.98);
+      --surface-hover:   #303030;
+      --header-bg:       rgba(20,20,20,.92);
+      --header-bg-solid: rgba(20,20,20,.98);
       --nav-shadow:      rgba(0,0,0,.5);
 
-      /* A dark slab would vanish into the page, so the primary button
-         becomes the accent with dark text on it */
-      --btn-bg:          #7ba4ff;
-      --btn-fg:          #0f1421;
-      --btn-bg-hover:    #a3c0ff;
+      --btn-bg:          #c41230;
+      --btn-fg:          #ffffff;
+      --btn-bg-hover:    #a61029;
 
-      --tex-a:    rgba(123,164,255,.07);
-      --tex-b:    rgba(185,164,255,.06);
-      --tex-grid: rgba(123,164,255,.028);
-      --badge-bg: rgba(185,164,255,.18);
+      --tex-a:    rgba(255,147,164,.07);
+      --tex-b:    rgba(196,18,48,.07);
+      --tex-grid: rgba(255,147,164,.028);
+      --badge-bg: rgba(196,18,48,.2);
     }
 
     /* ── THEME TOGGLE ── */
@@ -263,7 +247,7 @@
 
     a:focus-visible,
     button:focus-visible {
-      outline: 3px solid var(--accent-dim);
+      outline: 3px solid var(--focus);
       outline-offset: 3px;
     }
 
@@ -358,6 +342,7 @@
 
     .btn-primary:hover {
       background: var(--btn-bg-hover);
+      color: var(--btn-fg);
       border-color: var(--btn-bg-hover);
     }
 
@@ -779,7 +764,7 @@
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       padding: .8rem 0;
-      background: var(--accent);
+      background: var(--brand-red);
     }
 
     .marquee-inner {
@@ -793,7 +778,7 @@
       font-size: .68rem;
       letter-spacing: .2em;
       text-transform: uppercase;
-      color: var(--on-deep);
+      color: var(--on-brand);
       padding: 0 3rem;
     }
 
